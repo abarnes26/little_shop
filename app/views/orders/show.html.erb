@@ -12,8 +12,21 @@
     <th>Order Total Price:</th>
     <th><%= number_to_currency(@order.total_item_price) %></th>
   </tr>
+  <tr>
+    <th>Total Item Count:</th>
+    <th><%= @order.items.count %></th>
+  </tr>
 </table>
 
+<table>
+  <tr>
+    <th>Item Name</th>
+    <th>Item Information</th>
+  </tr>
 <% @order.item_count_and_subtotals.each do |item, info| %>
-  <p><%= link_to item, item_path(Item.find_by(name: item)) %> => <%= info %></p>
+  <tr>
+    <th><%= link_to item.name, item_path(item) %></th>
+    <th>Price: <%= item.price %> || <%= info %></th>
+  </tr>
 <% end %>
+</table>

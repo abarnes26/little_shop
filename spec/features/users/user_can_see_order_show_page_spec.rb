@@ -19,9 +19,9 @@ describe "When an authenticated user visits the /orders path" do
     end
 
     it "should see each item for that order with quantity and subtotal" do
-      expect(page).to have_content "#{@item1.name} => Quantity: 2 || Subtotal: $200.00"
-      expect(page).to have_content "#{@item2.name} => Quantity: 1 || Subtotal: $100.00"
-      expect(page).to have_content "#{@item3.name} => Quantity: 1 || Subtotal: $100.00"
+      expect(page).to have_content "Price: 100.0 || Quantity: 2 || Subtotal: $200.00"
+      expect(page).to have_content "Price: 100.0 || Quantity: 1 || Subtotal: $100.00"
+      expect(page).to have_content "Price: 100.0 || Quantity: 1 || Subtotal: $100.00"
     end
 
     it "should also see links for each item's show page" do
