@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/logout', to: "sessions#destroy"
   get '/dashboard', to: "users#show"
+  post '/items/search', to: "items#search"
 
   resource :cart, only: [:create, :show, :destroy, :update]
   resources :items, only: [:index, :show]

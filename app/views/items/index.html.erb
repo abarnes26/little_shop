@@ -1,5 +1,12 @@
 <h1 id="items-title"> All Lightsabers </h1>
 
+<%= form_tag("/items/search") do %>
+  <%= label_tag "Search For:" %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Submit"%>
+  <%= button_to "See All Items", items_path, method: :get %>
+<% end  %>
+
 <div class="container">
   <% @items.each do |item| %>
   <%= render partial: '/partials/item_render', locals: {item: item} %>

@@ -14,12 +14,6 @@ class Order < ApplicationRecord
     items.group(:id).sum(:price)
   end
 
-  def item_count_and_subtotals
-    item_count.merge(item_subtotals) do |item, count, subtotal|
-      "Quantity: #{count} || Subtotal: $#{'%.2f' % subtotal}"
-    end.transform_keys {|item_id| Item.find(item_id)}
-  end
-
   def total_item_price
     order_items.sum(:sub_total)
   end

@@ -12,6 +12,8 @@ class Category < ApplicationRecord
 
   def number_of_orders_for_category
     orders.distinct.count
+#This also works (without needing the extra has_many relationship all the way to orders)
+    order_items.select(:order_id).distinct.count
   end
 
   private
